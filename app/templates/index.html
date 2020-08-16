@@ -1,0 +1,291 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Home|Enfant Mere{% endblock  %}
+{% block content %}
+
+          
+      <div class="hero-wrap" style="background-image: url('{% static 'images/cover.jpg' %}');" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+          <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+            <div class="col-md-7 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
+              <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Doing Nothing is Not An Option of Our Work</h1>
+
+              <!-- <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><a href="https://vimeo.com/45830194" class="btn btn-white btn-outline-white px-4 py-3 popup-vimeo"><span class="icon-play mr-2"></span>Watch Video</a></p> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="ftco-counter ftco-intro" id="section-counter">
+        <div class="container">
+          <div class="row no-gutters">
+            <div class="col-md-5 d-flex justify-content-center counter-wrap ftco-animate">
+              <div class="block-18 color-1 align-items-stretch">
+                <div class="text">
+                  <span>Served Over</span>
+                  <strong class="number" data-number="570">0</strong>
+                  <span>Girls under 23 years in Rulindo District in over 17 cells</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+              <div class="block-18 color-2 align-items-stretch">
+                <div class="text">
+                  <h3 class="mb-4 text-white">Our mission</h3>
+                  <p class="text-white">is to combat injustice and violence against women especially teen-mothers …</p>
+
+                </div>
+              </div>
+            </div>
+            <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+              <div class="block-18 color-3 align-items-stretch">
+                <div class="text">
+                  <h3 class="mb-4 text-white">Be a Volunteer</h3>
+                  <p class="text-white">Even the all-powerful Pointing has no control about the blind texts.</p>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+  
+        <section class="mt-5">
+          <div class="container">
+            <h1 class="text-center">ABOUT ENFANT MERE</h1>
+            <p>WELCOME MESSAGE FROM THE CHAIRPESON Welcome to ORGANISATION ENFANTS-MERES (OEM), We are a group of people who share a common belief that if resources are channeled appropriately, would alleviate the problem of poverty over time. Although our focus is in Rwanda, our donors, partners & volunteers come from all over the world. We pride ourselves on building bridges across cultures and national boundaries. We believe that a fundamental cause of poverty and low standard of living in the world is mass illiteracy.</p>
+          </div>
+        </section>
+    
+
+      <section class="ftco-section bg-light">
+        <div class="container-fluid">
+          <div class="row justify-content-center mb-5 pb-3">
+            <div class="col-md-5 heading-section ftco-animate text-center">
+              <h2 class="mb-4">Our Causes</h2>
+              <p>We Building a critical mass of knowledgeable and empowered civil society in the region through people’s active participation, capacity enhancement and access to resources.</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 ftco-animate">
+              <div class="carousel-cause owl-carousel">
+                {% for cause in causes %}
+                <div class="item">
+                  <div class="cause-entry">
+                    <a class="img" style="background-image: url('{{ cause.cover.url }}');"></a>
+                    <div class="text p-3 p-md-4">
+                      <h3><a>{{ cause.title }}</a></h3>
+                      <p>{{ cause.description }}</p>
+                    </div>
+                  </div>
+                </div>                  
+                {% endfor %}
+              
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="ftco-section bg-light">
+        <div class="container-fluid">
+          <div class="row justify-content-center mb-5 pb-3">
+            <div class="col-md-5 heading-section ftco-animate text-center">
+              <h2 class="mb-4">Our Partners</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 ftco-animate">
+              <div class="carousel-cause owl-carousel">
+                <div class="item">
+                  <div class="ftco-animate">
+                    <div class="staff">
+                      <div class="d-flex mb-4">
+                        <div class="img" style="background-image: url('{% static 'images/logos/mozeme.jpg' %}');"></div>
+                        <div class="info ml-4">
+                          <h3><a href="teacher-single.html">Mozeme Foundation</a></h3>
+                          <span class="position">Donated Just now</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="ftco-animate">
+                    <div class="staff">
+                      <div class="d-flex mb-4">
+                        <div class="img" style="background-image: url('{% static 'images/logos/enfant.png' %}');"></div>
+                        <div class="info ml-4">
+                          <h3><a href="teacher-single.html">Enfant Mere</a></h3>
+                          <span class="position">Donated Just now</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="ftco-animate">
+                    <div class="staff">
+                      <div class="d-flex mb-4">
+                        <div class="img" style="background-image:url('{% static 'images/logos/united-nations.png' %}');"></div>
+                        <div class="info ml-4">
+                          <h3><a href="teacher-single.html">united-nations</a></h3>
+                          <span class="position">Donated Just now</span>
+                         
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+     
+      <section class="ftco-gallery">
+        
+          <div class="d-md-flex">
+            <a href="{% static 'images/cover2.jpg' %}" class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate" style="background-image: url({% static 'images/cover2.jpg' %});">
+              <div class="icon d-flex justify-content-center align-items-center">
+                <span class="icon-search"></span>
+              </div>
+            </a>
+            <a href="{% static 'images/image2.jpg' %}" class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate" style="background-image: url({% static 'images/image2.jpg' %});">
+              <div class="icon d-flex justify-content-center align-items-center">
+                <span class="icon-search"></span>
+              </div>
+            </a>
+            <a href="{% static 'images/IMG-20171021-WA0012.jpg' %}" class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate" style="background-image: url({% static 'images/IMG-20171021-WA0012.jpg' %});">
+              <div class="icon d-flex justify-content-center align-items-center">
+                <span class="icon-search"></span>
+              </div>
+            </a>
+            <a href="{% static 'images/IMG-20171021-WA0018.jpg' %}" class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate" style="background-image: url({% static 'images/IMG-20171021-WA0018.jpg' %});">
+              <div class="icon d-flex justify-content-center align-items-center">
+                <span class="icon-search"></span>
+              </div>
+            </a>
+          </div>
+          <div class="d-md-flex">
+            <a href="{% static 'images/image5.jpg' %}" class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate" style="background-image: url({% static 'images/image5.jpg' %});">
+              <div class="icon d-flex justify-content-center align-items-center">
+                <span class="icon-search"></span>
+              </div>
+            </a>
+            <a href="{% static 'images/meeting.jpg' %}" class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate" style="background-image: url({% static 'images/meeting.jpg' %});">
+              <div class="icon d-flex justify-content-center align-items-center">
+                <span class="icon-search"></span>
+              </div>
+            </a>
+            <a href="{% static 'images/image7.jpg' %}" class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate" style="background-image: url({% static 'images/image7.jpg' %});">
+              <div class="icon d-flex justify-content-center align-items-center">
+                <span class="icon-search"></span>
+              </div>
+            </a>
+            <a href="{% static 'images/IMG-20180718-WA0014.jpg' %}" class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate" style="background-image: url({% static 'images/IMG-20180718-WA0014.jpg' %});">
+              <div class="icon d-flex justify-content-center align-items-center">
+                <span class="icon-search"></span>
+              </div>
+            </a>
+          </div>
+  
+      </section>
+
+      <section class="ftco-section">
+        <div class="container">
+          <div class="row justify-content-center mb-5 pb-3">
+            <div class="col-md-7 heading-section ftco-animate text-center">
+              <h2 class="mb-4">Recent from blog</h2>
+              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+            </div>
+          </div>
+          <div class="row d-flex" id="pag">
+            
+            {% for item in blogs %}
+            <div class="col-md-4 d-flex ftco-animate">
+              <div class="blog-entry align-self-stretch">
+                <a href="{{ item.get_absolute_url }}" class="block-20" style="background-image: url('{{ item.cover.url }}');">
+                </a>
+                <div class="text p-4 d-block">
+                  <div class="meta mb-3">
+                    <div><a href="#">{{ item.date|date:"D d M, Y" }}</a></div>
+                    <div><a href="#">{{ item.author }}</a></div>
+                  </div>
+                  <h3 class="heading mt-3"><a href="{{ item.get_absolute_url }}">{{ item.title }}</a></h3>
+                  <p>{{ item.description|slice:":100"  }} <a href="{{ item.get_absolute_url }}">More ...</a> </p>
+                </div>
+              </div>
+            </div>
+
+              
+            {% endfor %}
+          </div>
+          {% if is_paginated %}
+
+          {% if page_obj.has_previous %}
+          <a class="btn btn-primary mb-4" href="?page=1#pag">First</a>
+          <a class="btn btn-primary mb-4" href="?page={{ page_obj.previous_page_number }}#pag">Previous</a>
+          {% endif %}
+        
+          {% for num in page_obj.paginator.page_range %}
+          {% if page_obj.number == num %}
+          <a class="btn btn-primary mb-4" href="?page={{ num }}#pag">{{ num }}</a>
+          {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+          <a class="btn btn-primary mb-4" href="?page={{ num }}#pag">{{ num }}</a>
+          {% endif %}
+          {% endfor %}
+        
+          {% if page_obj.has_next %}
+          <a class="btn btn-primary mb-4" href="?page={{ page_obj.next_page_number }}#pag">Next</a>
+          <a class="btn btn-primary mb-4" href="?page={{ page_obj.paginator.num_pages }}#pag">Last</a>
+          {% endif %}
+        
+        
+          {% endif %}
+        </div>
+        
+      </section>
+
+      <!-- <section class="ftco-section bg-light">
+        <div class="container">
+          <div class="row justify-content-center mb-5 pb-3">
+            <div class="col-md-7 heading-section ftco-animate text-center">
+              <h2 class="mb-4">Our Latest Events</h2>
+            </div>
+          </div>
+          <div class="row">
+            {% for event in events %}
+            <div class="col-md-4 d-flex ftco-animate">
+              <div class="blog-entry align-self-stretch">
+                <a href="blog-single.html" class="block-20" style="background-image: url('{% static 'images/event_1.jpg' %}');">
+                </a>
+                <div class="text p-4 d-block">
+                  <div class="meta mb-3">
+                    <div><a href="#">{{ event.date|date:"D d M, Y" }}</a></div>
+                    <div><a href="#">Admin</a></div>
+                    <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                  </div>
+                  <h3 class="heading mb-4"><a href="#">{{ event.title }}</a></h3>
+                  <p class="time-loc"><span class="mr-2"><i class="icon-clock-o"></i> 10:30AM-03:30PM</span> <span><i class="icon-map-o"></i> Venue Main Campus</span></p>
+                  <p>{{ event.description }}</p>
+                  <p><a href="event.html">Join Event <i class="ion-ios-arrow-forward"></i></a></p>
+                </div>
+              </div>
+            </div>
+                    
+            {% endfor %}
+          </div>
+        </div>
+      </section> -->
+      <section class="img" style="background-image: url(images/bg_3.jpg);">
+        <div class="overlay"></div>
+        <div class="container">
+        </div>
+      </section>
+
+
+  
+{% endblock  %}

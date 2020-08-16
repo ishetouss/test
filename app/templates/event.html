@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block title %} Event|Enfant Mere{% endblock  %}
+{% block content %}
+{% load static %}
+
+
+<div class="hero-wrap" style="background-image: url('{% static 'images/image1.jpg' %}');" data-stellar-background-ratio="0.5">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+      <div class="col-md-7 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
+         <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="index.html">Home</a></span> <span>Event</span></p>
+        <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Events</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<section class="ftco-section">
+  <div class="container">
+    <div class="row">
+      {% for event in object_list %}
+      <div class="col-md-4 d-flex ftco-animate">
+        <div class="blog-entry align-self-stretch">
+          <a class="block-20" style="background-image: url('{% static 'images/cover.jpg' %}');">
+          </a>
+          <div class="text p-4 d-block">
+            <div class="meta mb-3">
+              <div>{{ event.date|date:"D d M, Y" }}</div>
+              <div>{{ event.author }}</div>
+            </div>
+            <h3 class="heading mb-4">{{ event.title }}</h3>
+            <p class="time-loc"><span class="mr-2"><i class="icon-clock-o"></i>{{ event.time }}</span> <span><i class="icon-map-o"></i>{{ event.avenue }}</span></p>
+            <p>{{ event.description }}</p>
+            
+          </div>
+        </div>
+      </div>
+      {% empty %}
+        <p><div class="small">No Blog yet</div></p>
+      {% endfor %}
+
+    </div>
+    {% if is_paginated %}
+
+    {% if page_obj.has_previous %}
+    <a class="btn btn-primary mb-4" href="?page=1#pag">First</a>
+    <a class="btn btn-primary mb-4" href="?page={{ page_obj.previous_page_number }}#pag">Previous</a>
+    {% endif %}
+  
+    {% for num in page_obj.paginator.page_range %}
+    {% if page_obj.number == num %}
+    <a class="btn btn-primary mb-4" href="?page={{ num }}#pag">{{ num }}</a>
+    {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+    <a class="btn btn-primary mb-4" href="?page={{ num }}#pag">{{ num }}</a>
+    {% endif %}
+    {% endfor %}
+  
+    {% if page_obj.has_next %}
+    <a class="btn btn-primary mb-4" href="?page={{ page_obj.next_page_number }}#pag">Next</a>
+    <a class="btn btn-primary mb-4" href="?page={{ page_obj.paginator.num_pages }}#pag">Last</a>
+    {% endif %}
+  
+  
+    {% endif %}
+  </div>
+</section>
+
+  
+{% endblock  %}

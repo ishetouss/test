@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<br>
+<br>
+<br>
+<br>
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+    <div class="login-reg-bg">
+        <div class="log-reg-area sign">
+          Contact Us
+
+            <h2 class="log-title">Login</h2>
+            <p>
+                Don’t use Gatherly Yet? <a href="#" title="">Take the tour</a> or <a href="#" title="">Join
+                now</a>
+            </p>
+            <form method="post">
+                {% csrf_token %}
+               {{ form.as_p }}
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" checked="checked"/><i class="check-box"></i>Always Remember
+                        Me.
+                    </label>
+                </div>
+                <a href="#" title="" class="forgot-pwd">Forgot Password?</a>
+                <div class="submit-btns">
+                    <button class="mtr-btn signin" type="submit"><span>Login</span></button>
+                    <a class="mtr-btn signup" href="{% url 'register' %}"><span>Register</span>
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+    
+{% endblock  %}
+    

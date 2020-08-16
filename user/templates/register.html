@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+    <div class="login-reg-bg show">
+        <div class="log-reg-area reg">
+            {% if messages %}
+
+            {% for message in messages %}
+              {{ message }}
+              
+            {% endfor %}
+          {% else %}
+          Contact Us
+
+          {% endif %}
+            <h2 class="log-title">Register</h2>
+            <p>
+                Don’t use Gatherly Yet? <a href="#" title="">Take the tour</a> or <a href="#" title="">Join now</a>
+            </p>
+            <form method="post" action="">
+                {% csrf_token %}
+               {{ form.as_p }}
+                <a href="{% url 'login' %}" title="" class="already-have">Already have an account</a>
+                <div class="submit-btns">
+                    <button class="mtr-btn signup" type="submit"><span>Register</span></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+  
+ 
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+{% endblock  %}

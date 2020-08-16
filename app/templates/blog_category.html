@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% block title %} {{ category | title }}|Enfant Mere{% endblock  %}
+{% block content %}
+{% load static %}
+
+
+
+<div class="hero-wrap" style="background-image: url('{% static 'images/image6.jpg' %}');" data-stellar-background-ratio="0.5">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+      <div class="col-md-7 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
+         <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="index.html">Home</a></span> <span>Blog</span></p>
+        <h1 style="color: #f86f2d;" class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"> {{ category | title }}</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<section class="ftco-section">
+  <div class="container">
+    <h1 class="heading">Category:&nbsp; {{ category | title }}</h1>
+    <br>
+    <div class="row d-flex" id="pag">
+      {% for post in children %}
+      <div class="col-md-4 d-flex ftco-animate">
+        <div class="blog-entry align-self-stretch">
+          <a href="{{ item.get_absolute_url }}" class="block-20" style="background-image: url('{% static 'images/cover2.jpg' %}');">
+          </a>
+          <div class="text p-4 d-block">
+            <div class="meta mb-3">
+              <div><a href="#">{{ post.date|date:"D d M, Y" }}</a></div>
+              <div><a href="#">{{ post.author }}</a></div>
+              <br>
+              Categories:&nbsp;
+              {% for category in post.categories.all %}
+              <a href="{% url 'blog_category' category.name %}">
+                  {{ category.name }}
+              </a>&nbsp;
+              {% endfor %}
+            </div>
+            <h3 class="heading mt-3"><a href="{{ item.get_absolute_url }}">{{ post.title }}</a></h3>
+            <p>{{ post.description|truncatechars:100}}<strong><a href="{{ item.get_absolute_url }}">More</a></strong> </p>
+          </div>
+        </div>
+      </div>
+
+        
+      {% endfor %}
+    </div>
+    {% if is_paginated %}
+
+    {% if page_obj.has_previous %}
+    <a class="btn btn-primary mb-4" href="?page=1#pag">First</a>
+    <a class="btn btn-primary mb-4" href="?page={{ page_obj.previous_page_number }}#pag">Previous</a>
+    {% endif %}
+  
+    {% for num in page_obj.paginator.page_range %}
+    {% if page_obj.number == num %}
+    <a class="btn btn-primary mb-4" href="?page={{ num }}#pag">{{ num }}</a>
+    {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+    <a class="btn btn-primary mb-4" href="?page={{ num }}#pag">{{ num }}</a>
+    {% endif %}
+    {% endfor %}
+  
+    {% if page_obj.has_next %}
+    <a class="btn btn-primary mb-4" href="?page={{ page_obj.next_page_number }}#pag">Next</a>
+    <a class="btn btn-primary mb-4" href="?page={{ page_obj.paginator.num_pages }}#pag">Last</a>
+    {% endif %}
+  
+  
+    {% endif %}
+    <!-- <div class="row mt-5">
+      <div class="col text-center">
+        <div class="block-27">
+          <ul>
+            <li><a href="#">&lt;</a></li>
+            <li class="active"><span>1</span></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">&gt;</a></li>
+          </ul>
+        </div>
+      </div>
+    </div> -->
+  </div>
+</section>
+
+
+  
+{% endblock  %}
